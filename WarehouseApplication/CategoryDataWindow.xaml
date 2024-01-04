@@ -1,0 +1,35 @@
+﻿<Window x:Class="WarehouseApplication.CategoryDataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WarehouseApplication"
+        mc:Ignorable="d"
+        Title="CategoryDataWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="300" Orientation="Vertical">
+                <TextBlock Text="Current category database:" Margin="10" FontSize="20"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="center">
+                    <DataGrid x:Name="CategoryDataGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True"> 
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontSize="20" Margin="10" Text="Manage database:"/>
+                <Button Margin="0,5" Content="Reload records" Click="ReloadRecords_Click"/>
+                <Button Margin="0,5" Content="Add record" Click="AddRecord_Click"/>
+                <Button Margin="0,5" Content="Edit record" Click="EditRecord_Click"/>
+                <Button Margin="0,5" Content="Delete records" Click="DeleteRecords_Click"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBox>SIemaneczko</TextBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
