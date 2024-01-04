@@ -8,28 +8,46 @@
         Title="CategoryDataWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <StackPanel Width="300" Orientation="Vertical">
+            <StackPanel Width="370" Orientation="Vertical">
                 <TextBlock Text="Current category database:" Margin="10" FontSize="20"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="center">
-                    <DataGrid x:Name="CategoryDataGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True"> 
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <DataGrid  MaxWidth="350" MaxHeight="360" x:Name="CategoryDataGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <TextBlock FontSize="20" Margin="10" Text="Manage database:"/>
-                <Button Margin="0,5" Content="Reload records" Click="ReloadRecords_Click"/>
-                <Button Margin="0,5" Content="Add record" Click="AddRecord_Click"/>
-                <Button Margin="0,5" Content="Edit record" Click="EditRecord_Click"/>
-                <Button Margin="0,5" Content="Delete records" Click="DeleteRecords_Click"/>
+            <StackPanel Width="180" Orientation="Vertical">
+                <TextBlock HorizontalAlignment="center" FontSize="20" Margin="10" Text="Manage database:"/>
+                <Button FontSize="14" Width="150" Margin="0,5" Content="Add record" Click="AddRecord_Click"/>
+                <Button FontSize="14" Width="150" Margin="0,5" Content="Edit record" Click="EditRecord_Click"/>
+                <Button FontSize="13" Width="150" Margin="0,80,0,0" Content="Delete record" Background="red" Foreground="white" Click="DeleteRecord_Click"/>
             </StackPanel>
-            <StackPanel>
-                <TextBox>SIemaneczko</TextBox>
+            <StackPanel x:Name="CategoryPanel" HorizontalAlignment="Center" Margin="15" Width="200">
+                <!-- Add Panel Content -->
+                <StackPanel x:Name="CategoryAddPanel" Visibility="Hidden" Background="LightBlue">
+                    <TextBlock FontSize="15" Text="Category name" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="CategoryName" FontSize="15"/>
+                    <TextBlock Margin="0,15,0,0" FontSize="15" Text="Category description" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="CategoryDescription" FontSize="15"/>
+                    <Button FontSize="13" Margin="20" Click="SubmitNewCategory_Click" >Submit new category</Button>
+                </StackPanel>
+
+                <!-- Edit Panel Content -->
+                <StackPanel x:Name="CategoryEditPanel" Visibility="Hidden" Background="Orange">
+                    <TextBlock FontSize="15" Text="Category name" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="CategoryEditedName" FontSize="15"/>
+                    <TextBlock Margin="0,15,0,0" FontSize="15" Text="Category description" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="CategoryEditedDescription" FontSize="15"/>
+                    <Button FontSize="13" Margin="20" Click="SubmitEditCategory_Click" >Submit edit</Button>
+                </StackPanel>
             </StackPanel>
+
         </StackPanel>
     </Grid>
 </Window>

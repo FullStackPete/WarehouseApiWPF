@@ -17,7 +17,7 @@ namespace WarehouseApplication.ApiController.Services
             this.client = apiClient.ConnectToApi().Result; // Oczekujemy na połączenie przy inicjalizacji
         }
 
-        public async Task<ICollection<Category>> GetAllCategoriesAsync()
+        public async Task<ICollection<Category>> GetAllCategories()
         {            
             var result = await client.GetCategoriesAsync();
             return result;

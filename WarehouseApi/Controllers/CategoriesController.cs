@@ -69,7 +69,7 @@ namespace WarehouseApi.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/Categories
@@ -96,7 +96,9 @@ namespace WarehouseApi.Controllers
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            //return NoContent() throws exception in WarehouseApp
+
+            return Ok();
         }
 
         private bool CategoryExists(int id)
