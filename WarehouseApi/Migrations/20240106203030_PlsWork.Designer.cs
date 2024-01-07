@@ -12,8 +12,8 @@ using WarehouseApi.Entities;
 namespace WarehouseApi.Migrations
 {
     [DbContext(typeof(WarehouseApiContext))]
-    [Migration("20240103132213_Initagain")]
-    partial class Initagain
+    [Migration("20240106203030_PlsWork")]
+    partial class PlsWork
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,10 +54,11 @@ namespace WarehouseApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
+                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("Price")
+                    b.Property<decimal>("Price")
                         .HasColumnType("decimal(5,2)");
 
                     b.Property<string>("ProductDescription")
@@ -77,13 +78,11 @@ namespace WarehouseApi.Migrations
 
             modelBuilder.Entity("WarehouseApi.Entities.Product", b =>
                 {
-                    b.HasOne("WarehouseApi.Entities.Category", "Category")
+                    b.HasOne("WarehouseApi.Entities.Category", null)
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("WarehouseApi.Entities.Category", b =>

@@ -23,7 +23,7 @@ namespace WarehouseApi.Controllers
         // GET: api/Products
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
-        {
+        {            
             return await _context.Products.ToListAsync();
         }
 
@@ -69,7 +69,7 @@ namespace WarehouseApi.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/Products
@@ -82,6 +82,7 @@ namespace WarehouseApi.Controllers
 
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
+        
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
@@ -96,7 +97,7 @@ namespace WarehouseApi.Controllers
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok();
         }
 
         private bool ProductExists(int id)

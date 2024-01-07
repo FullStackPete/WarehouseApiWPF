@@ -104,10 +104,9 @@ namespace WarehouseApplication
             try
             {
                 // Twoje wywołanie API
-                var result = await categoryService.PostCategory(body);
-                await ReloadCategories();
+                await categoryService.PostCategory(body);                                                
             }
-            catch (WarehouseApiClient.ApiException ex)
+            catch (ApiException ex)
             {
                 if (ex.StatusCode == 201)
                 {
@@ -119,6 +118,7 @@ namespace WarehouseApplication
                     Console.WriteLine($"Error: {ex.Message}");
                 }
             }
+            await ReloadCategories();
         }
 
     }

@@ -71,12 +71,12 @@ namespace WarehouseApi.Controllers
 
             return Ok();
         }
-
+                
         // POST: api/Categories
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
-        {
+        {            
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
@@ -105,5 +105,18 @@ namespace WarehouseApi.Controllers
         {
             return _context.Categories.Any(e => e.Id == id);
         }
+
+        [HttpGet("productsOfCategory/{categoryId}")]
+        public async Task<ActionResult<ICollection<Product>>> GetProductsByCategory(int categoryId)
+        {
+            var category = _context.Categories.FirstOrDefault(x => categoryId == x.Id);
+            if (category != null)
+            {
+                var products = await _context.Products.Where(x => category.Id == x.CategoryId).ToListAsync();
+                return Ok(products);
+            }
+            return NotFound();
+        }
+
     }
 }

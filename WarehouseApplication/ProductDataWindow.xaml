@@ -5,8 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseApplication"
         mc:Ignorable="d"
-        Title="ProductDataWindow" Height="450" Width="800">
+        Title="ProductDataWindow" Height="450" Width="920">
     <Grid>
-        
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="370" Orientation="Vertical">
+                <TextBlock Text="Current product database:" Margin="10" FontSize="20"/>
+                <ComboBox x:Name="CategoryChoice" Width="150" SelectedIndex="0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="center">
+                    
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <DataGrid  MaxWidth="350" MaxHeight="360" x:Name="ProductDataGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                                <DataGridTextColumn Header="Name" Binding="{Binding ProductName}"/>
+                                <DataGridTextColumn Header="Description" Binding="{Binding ProductDescription}"/>
+                                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                                <DataGridTextColumn Header="Category" Binding="{Binding CategoryId}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Width="180" Orientation="Vertical">
+                <TextBlock HorizontalAlignment="center" FontSize="20" Margin="10" Text="Manage database:"/>
+                <Button FontSize="14" Width="150" Margin="0,5" Content="Add record" Click="AddRecord_Click"/>
+                <Button FontSize="14" Width="150" Margin="0,5" Content="Edit record" Click="EditRecord_Click"/>
+                <Button FontSize="13" Width="150" Margin="0,80,0,0" Content="Delete record" Background="red" Foreground="white" Click="DeleteRecord_Click"/>
+            </StackPanel>
+            <StackPanel x:Name="ProductPanel" HorizontalAlignment="Center" Margin="15" Width="340" Orientation="Horizontal">
+                <!-- Add Panel Content -->
+                <StackPanel x:Name="ProductAddPanel" Visibility="Hidden" Background="LightBlue" Width="170">
+                    <TextBlock FontSize="15" Text="Product name" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="ProductName" FontSize="15"/>
+                    <TextBlock Margin="0,15,0,0" FontSize="15" Text="Product description" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="ProductDescription" FontSize="15"/>
+                    <TextBlock Margin="0,15,0,0" FontSize="15" Text="Product price" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="ProductPrice" FontSize="15"/>
+                    <ComboBox x:Name="CategoryChoiceAdd" Width="150" SelectedIndex="0" Margin="0,15,0,0"/>
+                    <Button FontSize="13" Margin="20" Padding="3" Click="SubmitNewProduct_Click" >Submit new Product</Button>
+                </StackPanel>
+
+                <!-- Edit Panel Content -->
+                <StackPanel x:Name="ProductEditPanel" Visibility="Hidden" Background="Orange" Width="170">
+                    <TextBlock FontSize="15" Text="Product name" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="ProductEditedName" FontSize="15"/>
+                    <TextBlock Margin="0,15,0,0" FontSize="15" Text="Product description" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="ProductEditedDescription" FontSize="15"/>
+                    <TextBlock Margin="0,15,0,0" FontSize="15" Text="Product price" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="ProductEditedPrice" FontSize="15"/>
+                    <ComboBox x:Name="CategoryChoiceEdit" Width="150" Margin="0,15,0,0"/>
+                    <Button FontSize="13" Margin="20" Click="SubmitEditProduct_Click" >Submit edit</Button>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Window>

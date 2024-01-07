@@ -41,5 +41,10 @@ namespace WarehouseApplication.ApiController.Services
             var result = await client.PostCategoryAsync(body);
             return result;
         }
+        public async Task<ICollection<Product>> GetProductsByCategoryId(int categoryId)
+        {
+            var result = await client.GetProductsByCategoryAsync(categoryId);
+            return result;
+        }
     }
 }

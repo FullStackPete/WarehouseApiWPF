@@ -19,7 +19,7 @@ namespace WarehouseApplication.ApiController.Services
         public async Task<ICollection<Product>> GetAllProducts()
         {
             
-            var result = await client.GetProductsAsync();
+            var result = await client.GetProductsAsync();            
             return result;
         }
         public async Task<Product> GetSingleProduct(int id)

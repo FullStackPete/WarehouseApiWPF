@@ -9,7 +9,7 @@ namespace WarehouseApi.Entities
         
         public string Description { get; set; } = string.Empty;
 
-        public List<Product> Products { get; set; } = new List<Product>();
+        public ICollection<Product> Products { get; } = new List<Product>();
 
     }
 }

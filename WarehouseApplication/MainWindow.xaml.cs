@@ -11,6 +11,7 @@ namespace WarehouseApplication
     {
         private readonly ApiClient apiClient;
         private readonly CategoryService categoryService;
+        private readonly ProductService productService;
         
 
         private string TextBlockContent // Zdefiniuj właściwość, aby przechowywać zawartość TextBlock
@@ -26,7 +27,7 @@ namespace WarehouseApplication
             var httpClient = new HttpClient();
             apiClient = new ApiClient(httpClient);
             categoryService = new CategoryService(apiClient);
-
+            productService = new ProductService(apiClient);
             Loaded += MainWindow_Loaded;
         }
 
@@ -77,7 +78,7 @@ namespace WarehouseApplication
         }
         private void OpenProductDataWindow()
         {
-            ProductDataWindow productDataWindow = new ProductDataWindow();
+            ProductDataWindow productDataWindow = new ProductDataWindow(productService,categoryService);
             productDataWindow.Owner = this; // Ustaw właściciela nowego okna na główne okno
             productDataWindow.ShowDialog(); // Pokaż nowe okno jako dialog
         }
