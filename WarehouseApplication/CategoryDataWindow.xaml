@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseApplication"
         mc:Ignorable="d"
-        Title="CategoryDataWindow" Height="450" Width="800">
-    <Grid>
+        Title="CategoryDataWindow" Height="450" Width="800"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="False"
+    >
+    <Border Background="#272537" CornerRadius="10">
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="370" Orientation="Vertical">
-                <TextBlock Text="Current category database:" Margin="10" FontSize="20"/>
+                <TextBlock Foreground="white" Text="Current category database:" Margin="10" FontSize="20"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="center">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                         <DataGrid  MaxWidth="350" MaxHeight="360" x:Name="CategoryDataGrid" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
@@ -23,10 +28,10 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Width="180" Orientation="Vertical">
-                <TextBlock HorizontalAlignment="center" FontSize="20" Margin="10" Text="Manage database:"/>
-                <Button FontSize="14" Width="150" Margin="0,5" Content="Add record" Click="AddRecord_Click"/>
-                <Button FontSize="14" Width="150" Margin="0,5" Content="Edit record" Click="EditRecord_Click"/>
-                <Button FontSize="13" Width="150" Margin="0,80,0,0" Content="Delete record" Background="red" Foreground="white" Click="DeleteRecord_Click"/>
+                <TextBlock HorizontalAlignment="center" FontSize="20" Margin="10" Foreground="white" Text="Manage database:"/>
+                <Button FontSize="14" Width="150" Margin="0,5" Content="Add record" Background="#7CC3DD" Click="AddRecord_Click"/>
+                <Button FontSize="14" Width="150" Margin="0,5" Content="Edit record" Background="#7CC3DD" Click="EditRecord_Click"/>
+                <Button FontSize="13" Width="150" Margin="0,80,0,0" Content="Delete record" Background="#FFC554" Foreground="#272537" Click="DeleteRecord_Click"/>
             </StackPanel>
             <StackPanel x:Name="CategoryPanel" HorizontalAlignment="Center" Margin="15" Width="200">
                 <!-- Add Panel Content -->
@@ -49,5 +54,5 @@
             </StackPanel>
 
         </StackPanel>
-    </Grid>
+    </Border>
 </Window>

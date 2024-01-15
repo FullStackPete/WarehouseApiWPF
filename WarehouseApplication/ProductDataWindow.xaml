@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseApplication"
         mc:Ignorable="d"
-        Title="ProductDataWindow" Height="450" Width="920">
-    <Grid>
+        Title="ProductDataWindow" Height="450" Width="920"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="False"
+        >
+    <Border Background="#272537" CornerRadius="10">
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="370" Orientation="Vertical">
-                <TextBlock Text="Current product database:" Margin="10" FontSize="20"/>
+                <TextBlock Text="Current product database:" Foreground="White" Margin="10" FontSize="20"/>
                 <ComboBox x:Name="CategoryChoice" Width="150" SelectedIndex="0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="center">
                     
@@ -27,10 +32,10 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Width="180" Orientation="Vertical">
-                <TextBlock HorizontalAlignment="center" FontSize="20" Margin="10" Text="Manage database:"/>
-                <Button FontSize="14" Width="150" Margin="0,5" Content="Add record" Click="AddRecord_Click"/>
-                <Button FontSize="14" Width="150" Margin="0,5" Content="Edit record" Click="EditRecord_Click"/>
-                <Button FontSize="13" Width="150" Margin="0,80,0,0" Content="Delete record" Background="red" Foreground="white" Click="DeleteRecord_Click"/>
+                <TextBlock HorizontalAlignment="center" FontSize="20" Margin="10" Foreground="White" Text="Manage database:"/>
+                <Button FontSize="14" Width="150" Margin="0,5" Background="#7CC3DD" Content="Add record" Click="AddRecord_Click"/>
+                <Button FontSize="14" Width="150" Margin="0,5" Background="#7CC3DD" Content="Edit record" Click="EditRecord_Click"/>
+                <Button FontSize="13" Width="150" Margin="0,80,0,0" Content="Delete record" Background="#FFC554" Foreground="#272537" Click="DeleteRecord_Click"/>
             </StackPanel>
             <StackPanel x:Name="ProductPanel" HorizontalAlignment="Center" Margin="15" Width="340" Orientation="Horizontal">
                 <!-- Add Panel Content -->
@@ -59,5 +64,5 @@
             </StackPanel>
 
         </StackPanel>
-    </Grid>
+    </Border>
 </Window>

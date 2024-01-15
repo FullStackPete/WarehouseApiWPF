@@ -5,16 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Home" Height="450" Width="800"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="False"        
+        >
+
+    <Border Background="#272537" CornerRadius="10">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-            <TextBlock Margin="10" FontSize="50">Warehouse Manager</TextBlock>
+            <TextBlock Margin="10" FontSize="50" Foreground="White">Warehouse Manager</TextBlock>
             <StackPanel  Orientation="Horizontal" VerticalAlignment="center" Margin="30" HorizontalAlignment="Center">
-                <Button Padding="10" FontSize="20" Margin="20" Click="CategoryDataBtn">Category Data</Button>
-                <Button Padding="10" FontSize="20" Margin="20" Click="ProductDataBtn">Product Data</Button>
+                <Button Padding="10" FontSize="20" Margin="20" Background="#FFC554" Click="CategoryDataBtn">Category Data</Button>
+                <Button Padding="10" FontSize="20" Margin="20" Background="#FFC554" Click="ProductDataBtn">Product Data</Button>
             </StackPanel>
-            <TextBlock  FontSize="15" Name="ApiStatus" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Name="ApiReconnect" FontSize="15" Width="150" Click="ApiReconnect_Click">Reconnect to API</Button>
+            <TextBlock Foreground="white" FontSize="15" Name="ApiStatus" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Name="ApiReconnect" FontSize="15" Width="150" Background="#FFFFFF" Click="ApiReconnect_Click">Reconnect to API</Button>
         </StackPanel>
-    </Grid>
+        </Border>
 </Window>
